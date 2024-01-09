@@ -1,9 +1,22 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Tareas: React.FC = () => {
   const [tareas, setTareas] = useState<string[]>([]);
   const [nuevaTarea, setNuevaTarea] = useState<string>('');
+
+  // Cargar tareas desde LocalStorage al cargar la página
+  useEffect(() => {
+    const tareasGuardadas = localStorage.getItem('tareas');
+    if (tareasGuardadas) {
+      setTareas(JSON.parse(tareasGuardadas));
+    }
+  }, []);
+
+  // Actualizar LocalStorage cada vez que el estado de tareas cambie
+  useEffect(() => {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }, [tareas]);
 
   const agregarTarea = () => {
     if (nuevaTarea.trim() !== '') {

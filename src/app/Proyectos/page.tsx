@@ -13,6 +13,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ href, title, description }) => 
       className="
         rounded-lg
         h-80
+        w-64
         p-5
         flex
         flex-col
@@ -37,7 +38,12 @@ const Proyectos: React.FC = () => {
         <CustomCard
           href="/Proyectos/Tareas"
           title="Gestor de tareas"
-          description="Una descripción corta"
+          description="Crea y elimina tareas."
+        />
+        <CustomCard
+          href="/Proyectos/PixelArt"
+          title="PixelArt"
+          description="Dibuja pixelart."
         />
       </div>
     </div>
