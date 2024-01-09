@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main>
-          
-          <nav className="fixed w-full h-10 bg-slate-950 border-b-2 py-10 flex items-center justify-center">
+        <main className='bg-gradient-to-b from-slate-950 to-slate-900'>
+
+          <nav className="fixed w-full h-10 bg-transparent border-b-2 py-10 flex items-center justify-center">
             <ul className="flex flex-row gap-10">
               <li>
                 <a href="/">Inicio</a>
