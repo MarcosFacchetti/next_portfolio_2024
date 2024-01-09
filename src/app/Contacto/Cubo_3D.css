@@ -1,0 +1,66 @@
+@keyframes rotateCube3D {
+  /* Definición de la animación */
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  25%{
+    transform: rotateX(3deg) rotateY(90deg) rotateZ(2deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+  }
+  75% {
+    transform: rotateX(-3deg) rotateY(270deg) rotateZ(2deg);
+  }
+  100%{
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg);
+  }
+}
+
+.Cubo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos para el cubo 3D */
+.cube_3d {
+  width: 200px;
+  height: 200px; 
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube3D 5s linear infinite;
+}
+
+/* Estilos para las caras del cubo */
+.cube_3d .face {
+  position: absolute;
+  width: 200px;
+  height: 200px; 
+  border: 4px solid white;
+  opacity: 1;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #020617;
+  font-size: 2rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.cube_3d .face:hover {
+  background-color: var(---txt);
+  color: black;
+}
+
+/* Estilos para cada cara del cubo */
+.cube_3d .face.front  { transform: rotateY(0deg) translateZ(100px); }
+.cube_3d .face.back   { transform: rotateY(180deg) translateZ(100px); }
+.cube_3d .face.left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube_3d .face.right  { transform: rotateY(90deg) translateZ(100px); }
+.cube_3d .face.top    { transform: rotateX(90deg) translateZ(100px); }
+.cube_3d .face.bottom { transform: rotateX(-90deg) translateZ(100px); }
