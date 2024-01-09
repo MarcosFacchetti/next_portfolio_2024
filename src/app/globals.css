@@ -11,4 +11,7 @@ body {
   background-color: var(---bg);
   color: var(---txt);
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -13,7 +13,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ href, title, description }) => 
       className="
         rounded-lg
         h-80
-        w-64
+        w-60
         p-5
         flex
         flex-col
@@ -33,8 +33,8 @@ const CustomCard: React.FC<CustomCardProps> = ({ href, title, description }) => 
 
 const Proyectos: React.FC = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="h-[70%] w-[80%] flex flex-row flex-wrap gap-10 justify-center">
+    <div className="flex flex-col justify-center items-center">
+      <div className="pt-20 pb-10 h-[70%] w-[100%] flex flex-row flex-wrap gap-5 justify-center">
         <CustomCard
           href="/Proyectos/Tareas"
           title="Gestor de tareas"

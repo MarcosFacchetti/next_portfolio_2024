@@ -1,22 +1,9 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Tareas: React.FC = () => {
   const [tareas, setTareas] = useState<string[]>([]);
   const [nuevaTarea, setNuevaTarea] = useState<string>('');
-
-  // Cargar tareas desde LocalStorage al cargar la página
-  useEffect(() => {
-    const tareasGuardadas = localStorage.getItem('tareas');
-    if (tareasGuardadas) {
-      setTareas(JSON.parse(tareasGuardadas));
-    }
-  }, []);
-
-  // Actualizar LocalStorage cada vez que el estado de tareas cambie
-  useEffect(() => {
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-  }, [tareas]);
 
   const agregarTarea = () => {
     if (nuevaTarea.trim() !== '') {
@@ -32,8 +19,8 @@ const Tareas: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col items-center h-screen'>
-      <h1 className='font-bold text-2xl mt-40 mb-10'>Proyecto de gestor de tareas</h1>
+    <div className='flex flex-col items-center '>
+      <h1 className='font-bold text-2xl mt-40 mb-10'>Gestor de tareas</h1>
       <div className='flex items-center mb-4'>
         <input
           type='text'
