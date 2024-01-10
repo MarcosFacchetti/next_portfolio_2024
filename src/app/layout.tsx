@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className='w-[25rem] flex flex-col justify-center items-center bg-gradient-to-b from-slate-950 to-gray-950 lg:w-[50rem]'>
+        <main className='w-[25rem] flex flex-col justify-center items-center bg-gradient-to-b from-slate-950 to-gray-950 lg:w-[35rem]'>
 
           <nav className="w-full h-10 bg-slate-950 rounded-lg border-2 py-10 flex items-center justify-center">
             <ul className="flex flex-row items-start justify-evenly w-[90%] gap-10 text-lg">
