@@ -55,7 +55,7 @@ const habilidades = {
 
 const Home = () => {
   return (
-    <div className="flex justify-center items-center pt-20">
+    <div className="flex justify-center items-center pt-12">
       <div className='text-center'>
         <h1 className="text-4xl font-bold mb-4">Marcos Facchetti</h1>
         <p className="text-2xl mb-4">Programador Fullstack</p>
