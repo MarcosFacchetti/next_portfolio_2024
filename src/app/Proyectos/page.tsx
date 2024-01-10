@@ -18,6 +18,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ href, title, description }) => 
         flex
         flex-col
         items-center
+        text-center
         gap-10
         font-bold
         bg-slate-950
@@ -44,6 +45,11 @@ const Proyectos: React.FC = () => {
           href="/Proyectos/PixelArt"
           title="PixelArt"
           description="Dibuja pixelart."
+        />
+        <CustomCard
+          href="https://mjfclima.netlify.app/"
+          title="App del clima"
+          description="Consulta el clima en cualquier parte del mundo"
         />
       </div>
     </div>
