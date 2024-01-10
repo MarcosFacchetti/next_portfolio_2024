@@ -19,6 +19,7 @@ import {
   SiGimp,
   SiAudacity,
   SiNextdotjs,
+  SiTypescript,
 } from "react-icons/si";
 
 const habilidades = {
@@ -48,6 +49,8 @@ const habilidades = {
     { name: 'Excel', icon: SiMicrosoftexcel },
     { name: 'Gimp', icon: SiGimp},
     { name: 'Audacity', icon: SiAudacity},
+    { name: 'Typescript', icon: SiTypescript},
+
 
 
   ],
@@ -72,7 +75,7 @@ const Home = () => {
                 <ul className="flex flex-wrap justify-center">
                   {skills.map((skill, idx) => (
                     <li key={idx} className="text-base ml-4 mt-2 mr-2 flex items-center">
-                      <skill.icon className="mr-1 transition text-xl hover:scale-[1.5]" /> {skill.name}
+                      <skill.icon className="mr-1 transition text-xl hover:scale-[1.3]" /> {skill.name}
                     </li>
                   ))}
                 </ul>
