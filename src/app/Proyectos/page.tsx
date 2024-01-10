@@ -36,6 +36,12 @@ const Proyectos: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="pt-20 pb-10 h-[70%] w-[100%] flex flex-row flex-wrap gap-5 justify-center">
+
+        <CustomCard
+          href="/Proyectos/Clima"
+          title="App del clima"
+          description="Consulta el clima en cualquier parte del mundo"
+        />
         <CustomCard
           href="/Proyectos/Tareas"
           title="Gestor de tareas"
@@ -45,12 +51,8 @@ const Proyectos: React.FC = () => {
           href="/Proyectos/PixelArt"
           title="PixelArt"
           description="Dibuja pixelart."
-        />
-        <CustomCard
-          href="https://mjfclima.netlify.app/"
-          title="App del clima"
-          description="Consulta el clima en cualquier parte del mundo"
-        />
+          />
+          
       </div>
     </div>
   );
