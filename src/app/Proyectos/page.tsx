@@ -39,7 +39,7 @@ const Proyectos: React.FC = () => {
         <CustomCard
           href="/Proyectos/Ecommerce"
           title="Tienda online"
-          description="ecommerce"
+          description="Ecommerce"
         />
         <CustomCard
           href="/Proyectos/Clima"

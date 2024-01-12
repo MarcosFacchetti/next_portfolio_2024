@@ -2,7 +2,7 @@ import React from 'react'
 
 const Mujeres = () => {
   return (
-    <div>*Ropa de mujeres*</div>
+    <div>*Productos para mujeres*</div>
   )
 }
 
