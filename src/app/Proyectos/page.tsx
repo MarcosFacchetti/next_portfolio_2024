@@ -36,7 +36,11 @@ const Proyectos: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="pt-20 pb-10 h-[70%] w-[100%] flex flex-row flex-wrap gap-5 justify-center">
-
+        <CustomCard
+          href="/Proyectos/Ecommerce"
+          title="Tienda online"
+          description="ecommerce"
+        />
         <CustomCard
           href="/Proyectos/Clima"
           title="App del clima"
@@ -52,7 +56,6 @@ const Proyectos: React.FC = () => {
           title="PixelArt"
           description="Dibuja pixelart."
           />
-          
       </div>
     </div>
   );
