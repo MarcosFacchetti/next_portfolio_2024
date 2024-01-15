@@ -68,7 +68,7 @@ const Home = () => {
         </div>
         <div>
           <p className="text-2xl pt-10 mb-5">Tecnologías</p>
-          <ul className="mb-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul className="mb-4 grid grid-cols-3 md:grid-cols-3 gap-6">
             {Object.entries(habilidades).map(([category, skills], index) => (
               <li key={index} className="flex flex-col items-center">
                 <p className="text-lg font-bold mb-2">{category}</p>
