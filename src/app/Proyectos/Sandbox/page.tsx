@@ -1,21 +1,24 @@
 "use client"
-import React, { useRef, useState, useEffect } from "react";
+
+import React, { useRef, useState, useEffect, ChangeEvent } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
+import Image from "next/image";
 import Esqueleto from "./esqueleto.gif";
 import Dino from "./dinosaurio y Rana.gif";
 import Alien from "./alien.gif";
 import Michael from "./michael.gif";
 import Alien2 from "./alien2.gif";
 
-import Image from "next/image";
+interface PlayerRef {
+  contentWindow: Window | null;
+}
 
 const Sandbox = () => {
-  const playerRef = useRef<HTMLIFrameElement | null>(null);
+  const playerRef = useRef<PlayerRef>({ contentWindow: null });
   const [isPlaying, setIsPlaying] = useState(true);
-  const [volume, setVolume] = useState(50); // Inicializa el volumen al 50%
+  const [volume, setVolume] = useState(50);
 
   useEffect(() => {
-    // Recuperar el estado de reproducción y volumen al cargar el componente
     const storedIsPlaying = localStorage.getItem("isPlaying");
     if (storedIsPlaying !== null) {
       setIsPlaying(JSON.parse(storedIsPlaying));
@@ -26,67 +29,58 @@ const Sandbox = () => {
       setVolume(Number(storedVolume));
     }
 
-    // Iniciar la reproducción al cargar el componente
-    if (playerRef.current) {
-      const contentWindow = playerRef.current.contentWindow;
-      if (contentWindow && isPlaying) {
-        contentWindow.postMessage(
-          '{"event":"command","func":"playVideo","args":""}',
-          "*"
-        );
-        contentWindow.postMessage(
-          `{"event":"command","func":"setVolume","args":[${volume}]}`,
-          "*"
-        );
-      }
+    if (playerRef.current?.contentWindow && isPlaying) {
+      const { contentWindow } = playerRef.current;
+      contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        "*"
+      );
+      contentWindow.postMessage(
+        `{"event":"command","func":"setVolume","args":[${volume}]}`,
+        "*"
+      );
     }
   }, []);
 
   useEffect(() => {
-    // Almacenar el estado de reproducción y volumen en localStorage al cambiar el estado
     localStorage.setItem("isPlaying", JSON.stringify(isPlaying));
   }, [isPlaying]);
 
   useEffect(() => {
-    // Actualizar el volumen al cambiar el estado
-    if (playerRef.current) {
-      const contentWindow = playerRef.current.contentWindow;
-      if (contentWindow) {
-        contentWindow.postMessage(
-          `{"event":"command","func":"setVolume","args":[${volume}]}`,
-          "*"
-        );
-      }
+    if (playerRef.current?.contentWindow) {
+      const { contentWindow } = playerRef.current;
+      contentWindow.postMessage(
+        `{"event":"command","func":"setVolume","args":[${volume}]}`,
+        "*"
+      );
     }
     localStorage.setItem("volume", String(volume));
   }, [volume]);
 
   const togglePlayPause = () => {
-    if (playerRef.current) {
-      const contentWindow = playerRef.current.contentWindow;
-      if (contentWindow) {
-        if (isPlaying) {
-          contentWindow.postMessage(
-            '{"event":"command","func":"pauseVideo","args":""}',
-            "*"
-          );
-        } else {
-          contentWindow.postMessage(
-            '{"event":"command","func":"playVideo","args":""}',
-            "*"
-          );
-        }
-        setIsPlaying(!isPlaying);
+    if (playerRef.current?.contentWindow) {
+      const { contentWindow } = playerRef.current;
+      if (isPlaying) {
+        contentWindow.postMessage(
+          '{"event":"command","func":"pauseVideo","args":""}',
+          "*"
+        );
+      } else {
+        contentWindow.postMessage(
+          '{"event":"command","func":"playVideo","args":""}',
+          "*"
+        );
       }
+      setIsPlaying(!isPlaying);
     }
   };
 
-  const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(event.target.value));
   };
 
   return (
-    <div>
+    <div className="bg-slate-950">
       <div className="fixed flex h-56 justify-center items-center w-20 flex-col bottom-0 right-0">
         <div>
           <input
@@ -106,7 +100,9 @@ const Sandbox = () => {
       </div>
       <div className="flex items-center justify-center">
         <iframe
-          ref={playerRef}
+          ref={(ref) =>
+            (playerRef.current.contentWindow = ref?.contentWindow || null)
+          }
           width="0"
           height="0"
           title="YouTube Music Player"
@@ -116,7 +112,7 @@ const Sandbox = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="pt-40 relative">
+      <div className="mt-40 relative">
         <Image
           priority
           className="relative bottom-[100px]"
@@ -127,25 +123,25 @@ const Sandbox = () => {
         <Image
           className="absolute top-1/4 left-3/4"
           src={Dino}
-          alt="Slender GIF"
+          alt="Dinosaurio"
           width={70}
         />
         <Image
           className="absolute top-1/4 right-3/4"
           src={Alien}
-          alt="Slender GIF"
+          alt="Alien"
           width={70}
         />
         <Image
           className="absolute bottom-1/4 left-3/4"
           src={Michael}
-          alt="Slender GIF"
+          alt="Michael"
           width={70}
         />
         <Image
           className="absolute bottom-1/4 right-2/4 lg:right-3/4"
           src={Alien2}
-          alt="Slender GIF"
+          alt="Alien2"
           width={150}
         />
       </div>
