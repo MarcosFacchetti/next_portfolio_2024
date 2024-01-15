@@ -2,7 +2,9 @@ import React from 'react'
 
 const Hombres = () => {
   return (
-    <div>*Productos para hombre*</div>
+    <div className='pt-56'>
+      *Productos para hombre*
+    </div>
   )
 }
 

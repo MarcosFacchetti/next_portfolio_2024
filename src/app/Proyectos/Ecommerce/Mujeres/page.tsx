@@ -2,7 +2,9 @@ import React from 'react'
 
 const Mujeres = () => {
   return (
-    <div>*Productos para mujeres*</div>
+    <div className='pt-56' >
+      *Productos para mujeres*
+    </div>
   )
 }
 

@@ -52,7 +52,7 @@ const Clima: React.FC = () => {
 
   return (
     <div className="app">
-      <div className="pt-10 text-slate-950">
+      <div className="pt-40 text-slate-950">
         <input
           value={location}
           onChange={(event) => setLocation(event.target.value)}

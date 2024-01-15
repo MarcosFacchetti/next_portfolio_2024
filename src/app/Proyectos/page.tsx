@@ -35,7 +35,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ href, title, description }) => 
 const Proyectos: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="pt-20 pb-10 h-[70%] w-[100%] flex flex-row flex-wrap gap-5 justify-center">
+      <div className="pt-40 pb-10 h-[70%] w-[100%] flex flex-row flex-wrap gap-5 justify-center">
         <CustomCard
           href="/Proyectos/Ecommerce"
           title="Tienda online"

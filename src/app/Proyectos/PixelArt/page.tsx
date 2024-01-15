@@ -32,7 +32,7 @@ const PixelArt: React.FC = () => {
   };
 
   return (
-    <main className="flex justify-center pt-32 items-center">
+    <main className="flex justify-center pt-40 items-center">
       <div className="p-4 w-[23rem] flex flex-col justify-center items-center ">
         <h1 className="text-3xl font-bold mb-4">Pixel Art</h1>
         <div className="mb-4">

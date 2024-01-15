@@ -2,7 +2,9 @@ import React from 'react'
 
 const Ninos = () => {
   return (
-    <div>*Productos para niños*</div>
+    <div className='pt-56'>
+      *Productos para niños*
+    </div>
   )
 }
 
