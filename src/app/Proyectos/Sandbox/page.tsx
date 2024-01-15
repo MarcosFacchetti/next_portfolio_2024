@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const Sandbox = () => {
   return (
-    <div className="flex flex-col-reverse h-screen w-full justify-center items-center">
+    <div className="flex h-screen w-full justify-center">
       <div>
-        <Image className="h-auto" src={Jebus} alt="jebus" />
+        <Image className="h-auto mt-40" src={Jebus} alt="jebus" />
 
         <iframe
           width="240"
