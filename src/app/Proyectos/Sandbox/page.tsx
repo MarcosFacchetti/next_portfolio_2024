@@ -121,14 +121,6 @@ const Sandbox = () => {
           loading="lazy"
         />
         <Image
-          className="absolute top-1/4 left-3/4"
-          src={Michael}
-          alt="Dinosaurio"
-          width={70}
-          loading="lazy"
-
-        />
-        <Image
           className="absolute top-1/4 right-3/4"
           src={Alien}
           alt="Alien"
@@ -141,14 +133,6 @@ const Sandbox = () => {
           src={Michael}
           alt="Michael"
           width={70}
-          loading="lazy"
-
-        />
-        <Image
-          className="absolute bottom-1/4 right-2/4 lg:right-3/4"
-          src={Alien}
-          alt="Alien2"
-          width={150}
           loading="lazy"
 
         />
