@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState, useEffect, ChangeEvent } from "react";
+import React, { useRef, useState, useEffect, ChangeEvent, lazy } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
 import Image from "next/image";
 import Esqueleto from "./esqueleto.gif";
@@ -114,35 +114,43 @@ const Sandbox = () => {
       </div>
       <div className="mt-40 relative">
         <Image
-          priority
           className="relative bottom-[100px]"
           src={Esqueleto}
           alt="Esqueleto"
           width={500}
+          loading="lazy"
         />
         <Image
           className="absolute top-1/4 left-3/4"
           src={Dino}
           alt="Dinosaurio"
           width={70}
+          loading="lazy"
+
         />
         <Image
           className="absolute top-1/4 right-3/4"
           src={Alien}
           alt="Alien"
           width={70}
+          loading="lazy"
+
         />
         <Image
           className="absolute bottom-1/4 left-3/4"
           src={Michael}
           alt="Michael"
           width={70}
+          loading="lazy"
+
         />
         <Image
           className="absolute bottom-1/4 right-2/4 lg:right-3/4"
           src={Alien2}
           alt="Alien2"
           width={150}
+          loading="lazy"
+
         />
       </div>
     </div>
