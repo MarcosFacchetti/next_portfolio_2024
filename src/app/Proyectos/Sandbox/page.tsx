@@ -119,7 +119,7 @@ const Sandbox = () => {
       <div className="pt-40 relative">
         <Image
           priority
-          className="relative z-10"
+          className="relative bottom-[100px]"
           src={Esqueleto}
           alt="Esqueleto"
           width={500}
