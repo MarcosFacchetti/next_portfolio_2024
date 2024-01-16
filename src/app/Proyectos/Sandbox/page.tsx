@@ -55,6 +55,8 @@ const Eye: React.FC<EyeProps> = ({ mouseX, mouseY }) => {
   );
 };
 
+
+
 const Sandbox = () => {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
@@ -87,7 +89,7 @@ const Sandbox = () => {
         </div>
       </div>
 
-      <div className="relative flex w-screen items-center justify-center mb-[36rem]">
+      <div className="relative flex w-96 items-center justify-center mb-[36rem]">
         <Image src={Gato} alt="gato" className="min-h-80 w-64" />
         <div className="absolute top-[-210px] left-0 right-0 bottom-0 flex items-center justify-center">
           <Eye mouseX={mouseX} mouseY={mouseY} />
@@ -181,7 +183,6 @@ const Sandbox = () => {
                   XL
                 </div>
               </label>
-              {/* ... Otros tamaños ... */}
             </div>
           </div>
           <div className="flex space-x-4 mb-6 text-sm font-medium">
@@ -218,11 +219,10 @@ const Sandbox = () => {
               </svg>
             </button>
           </div>
-          <p className="text-sm text-slate-300">
-            Envios gratis en Argentina.
-          </p>
+          <p className="text-sm text-slate-300">Envios gratis en Argentina.</p>
         </form>
       </div>
+
     </div>
   );
 };
