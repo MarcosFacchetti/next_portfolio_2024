@@ -56,6 +56,7 @@ const habilidades = {
   ],
 };
 
+
 const Home = () => {
   return (
     <div className="flex justify-center items-center pt-40">
