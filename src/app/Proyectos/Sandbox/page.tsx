@@ -7,7 +7,7 @@ import Ropa from "./ropa.png";
 import Montaña_1 from "./montaña_1.png";
 import Montaña_2 from "./montaña_2.png";
 import Montaña_3 from "./montaña_3.png";
-import Montaña_4 from "./montaña_4.png";
+import Montaña_4 from "./Montaña_4.png";
 import Agua from "./Agua.png";
 
 import Sol from "./Sol.png";
