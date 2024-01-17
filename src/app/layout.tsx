@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className='w-[25rem] flex flex-col  items-center bg-slate-950 lg:w-[35rem]'>
 
-          <nav className="fixed w-full h-10 bg-slate-950 rounded-lg border-2 py-10 flex items-center justify-center lg:w-[600px] z-10">
+          <nav className="fixed w-full h-10 bg-slate-950 rounded-lg border-2 py-10 flex items-center justify-center lg:w-[600px] z-50">
             <ul className="flex flex-row items-start justify-evenly w-[90%] gap-10 text-lg">
               <li>
                 <a className='hover:pb-1 hover:border-b-2' href="/">Inicio</a>

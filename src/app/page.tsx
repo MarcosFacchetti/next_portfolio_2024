@@ -31,7 +31,6 @@ const habilidades = {
     { name: 'Next', icon: SiNextdotjs },
     { name: 'Bootstrap', icon: SiBootstrap },
     { name: 'Tailwind', icon: SiTailwindcss },
-
   ],
   Backend: [
     { name: 'Python', icon: SiPython },
@@ -41,7 +40,6 @@ const habilidades = {
     { name: 'FastApi', icon: SiFastapi },
     { name: 'MySQL', icon: SiMysql },
     { name: 'Mongodb', icon: SiMongodb },
-
   ],
   Extras: [
     { name: 'Godot', icon: SiGodotengine },
@@ -50,9 +48,6 @@ const habilidades = {
     { name: 'Gimp', icon: SiGimp},
     { name: 'Audacity', icon: SiAudacity},
     { name: 'Typescript', icon: SiTypescript},
-
-
-
   ],
 };
 
@@ -72,7 +67,7 @@ const Home = () => {
           <ul className="mb-4 grid grid-cols-3 md:grid-cols-3 gap-6">
             {Object.entries(habilidades).map(([category, skills], index) => (
               <li key={index} className="flex flex-col items-center">
-                <p className="text-lg font-bold mb-2">{category}</p>
+                <p className="text-lg font-bold py-2">{category}</p>
                 <ul className="flex flex-wrap justify-center">
                   {skills.map((skill, idx) => (
                     <li key={idx} className="text-base ml-4 mt-2 mr-2 flex items-center">

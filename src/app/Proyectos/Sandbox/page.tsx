@@ -4,6 +4,13 @@ import Jebus from "./jebusDance.gif";
 import Image from "next/image";
 import Gato from "./gato.png";
 import Ropa from "./ropa.png";
+import Montaña_1 from "./montaña_1.png";
+import Montaña_2 from "./montaña_2.png";
+import Montaña_3 from "./montaña_3.png";
+import Montaña_4 from "./montaña_4.png";
+import Agua from "./Agua.png";
+
+import Sol from "./Sol.png";
 
 interface EyeProps {
   mouseX: number;
@@ -55,7 +62,66 @@ const Eye: React.FC<EyeProps> = ({ mouseX, mouseY }) => {
   );
 };
 
+interface ParallaxProps {}
 
+const ParallaxComponent: React.FC<ParallaxProps> = (props) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    setScrollPosition(e.currentTarget.scrollTop);
+  };
+
+  return (
+    <div
+      className="overflow-y-scroll flex flex-col justify-center items-center h-[20rem] mb-[36rem]"
+      onScroll={handleScroll}
+    >
+      <div className="relative w-96 mt-[80%] pb-40 border-slate-700 h-80 flex justify-center ">
+        <h1
+          className="text-center z-[5] text-blue-500 font-mono"
+          style={{ transform: `translateY(-${scrollPosition * 0.18}px)` }}
+        >
+          Parallax
+        </h1>
+        <Image
+          src={Montaña_1}
+          alt="fondo"
+          className="absolute bottom-0 z-20"
+          style={{ transform: `translateY(-${scrollPosition * 0.8}px)` }}
+        />
+        <Image
+          src={Montaña_2}
+          alt="fondo"
+          className="absolute h-40 w-64 bottom-0 z-[4] "
+          style={{ transform: `translateY(-${scrollPosition * 1}px)` }}
+        />
+        <Image
+          src={Montaña_4}
+          alt="fondo"
+          className="absolute h-40 w-64 bottom-0 z-[11] "
+          style={{ transform: `translateY(-${scrollPosition * 0.6}px)` }}
+        />
+        <Image
+          src={Montaña_3}
+          alt="fondo"
+          className="absolute h-40 z-[9] bottom-0 "
+          style={{ transform: `translateY(-${scrollPosition * 1.3}px)` }}
+        />
+        <Image
+          src={Sol}
+          alt="fondo"
+          className="absolute h-40 w-[300px] bottom-0 object-cover z-[6]"
+          style={{ transform: `translateY(-${scrollPosition * 2.1}px)` }}
+        />
+        <Image
+          src={Agua}
+          alt="fondo"
+          className="absolute h-40 w-full bg-repeat z-[21] bottom-0 object-cover"
+        />
+      </div>
+    </div>
+  );
+};
 
 const Sandbox = () => {
   const [mouseX, setMouseX] = useState(0);
@@ -103,7 +169,7 @@ const Sandbox = () => {
       </div>
 
       <div className="flex w-96 flex-col font-serif mb-[36rem] md:w-auto">
-        <form className="flex-auto p-6 border-2">
+        <form className="flex-auto p-6 rounded-xl border-2">
           <div className="flex flex-wrap">
             <div className="w-28 h-28 relative mr-5 hover:w-80 hover:absolute hover:m-auto hover:h-80 hover:transition-all ">
               <Image
@@ -223,6 +289,7 @@ const Sandbox = () => {
         </form>
       </div>
 
+      <ParallaxComponent />
     </div>
   );
 };
