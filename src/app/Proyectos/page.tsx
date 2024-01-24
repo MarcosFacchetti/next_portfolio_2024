@@ -39,17 +39,12 @@ const Proyectos: React.FC = () => {
         <CustomCard
           href="/Proyectos/Sandbox"
           title="Sandbox"
-          description="Acá es donde testeo cosas"
+          description="Componentes con código que reutilizo"
         />
         <CustomCard
           href="/Proyectos/Clima"
           title="App del clima"
           description="Consulta el clima en cualquier parte del mundo"
-        />
-        <CustomCard
-          href="/Proyectos/Tareas"
-          title="Gestor de tareas"
-          description="Crea y elimina tareas."
         />
         <CustomCard
           href="/Proyectos/PixelArt"

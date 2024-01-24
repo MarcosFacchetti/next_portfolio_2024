@@ -19,8 +19,8 @@ const Tareas: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col items-center '>
-      <h1 className='font-bold text-2xl pt-40 mb-10'>Gestor de tareas</h1>
+    <div className='flex flex-col items-center p-10 '>
+      <h1 className='font-bold text-2xl mt-5 mb-10'>Gestor de tareas</h1>
       <div className='flex items-center mb-4'>
         <input
           type='text'

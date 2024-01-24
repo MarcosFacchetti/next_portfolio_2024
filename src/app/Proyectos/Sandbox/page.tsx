@@ -10,6 +10,7 @@ import Montaña_4 from "./Montaña_4.png";
 import Agua from "./Agua.png";
 import Sol from "./Sol.png";
 import Jebus from "./jebusDance.gif";
+import Tareas from "@/app/Proyectos/Tareas/page"
 
 interface EyeProps {
   mouseX: number;
@@ -126,11 +127,11 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 3 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 4 : prevIndex - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 4 ? 0 : prevIndex + 1));
   };
 
   const [mouseX, setMouseX] = useState(0);
@@ -307,7 +308,23 @@ const Carousel = () => {
             currentIndex === 3 ? "block" : "hidden"
           }`}
         >
-          <Image src={Jebus} alt="jebus" />
+          <Tareas/>
+        </div>
+        <div
+          className={`flex justify-center items-center text-center ${
+            currentIndex === 4 ? "block" : "hidden"
+          }`}
+        >
+          <div>
+            <iframe
+              height="315"
+              src="https://www.youtube.com/embed/HhC75IonpOU?si=Hx-hy6ZkrlWhaGIr"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
 
