@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Jebus from "./jebusDance.gif";
 import Image from "next/image";
 import Gato from "./gato.png";
 import Ropa from "./ropa.png";
@@ -9,8 +8,8 @@ import Montaña_2 from "./montaña_2.png";
 import Montaña_3 from "./montaña_3.png";
 import Montaña_4 from "./Montaña_4.png";
 import Agua from "./Agua.png";
-
 import Sol from "./Sol.png";
+import Jebus from "./jebusDance.gif";
 
 interface EyeProps {
   mouseX: number;
@@ -73,13 +72,13 @@ const ParallaxComponent: React.FC<ParallaxProps> = (props) => {
 
   return (
     <div
-      className="overflow-y-scroll flex flex-col justify-center items-center h-[20rem] mb-[36rem]"
+      className="overflow-y-scroll flex flex-col justify-center items-center h-[20rem]"
       onScroll={handleScroll}
     >
-      <div className="relative w-96 mt-[80%] pb-40 border-slate-700 h-80 flex justify-center ">
+      <div className="relative w-96 mt-[80%] pb-40 h-80 flex justify-center ">
         <h1
-          className="text-center z-[5] text-blue-500 font-mono"
-          style={{ transform: `translateY(-${scrollPosition * 0.18}px)` }}
+          className="text-center z-[5] text-blue-300 font-mono"
+          style={{ transform: `translateY(-${scrollPosition * 0.22}px)` }}
         >
           Parallax
         </h1>
@@ -111,7 +110,7 @@ const ParallaxComponent: React.FC<ParallaxProps> = (props) => {
           src={Sol}
           alt="fondo"
           className="absolute h-40 w-[300px] bottom-0 object-cover z-[6]"
-          style={{ transform: `translateY(-${scrollPosition * 2.1}px)` }}
+          style={{ transform: `translateY(-${scrollPosition * 2}px)` }}
         />
         <Image
           src={Agua}
@@ -123,7 +122,17 @@ const ParallaxComponent: React.FC<ParallaxProps> = (props) => {
   );
 };
 
-const Sandbox = () => {
+const Carousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 3 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
+  };
+
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
@@ -134,162 +143,198 @@ const Sandbox = () => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center"
-      id="arriba"
+      className="flex justify-evenly mt-40 border-2 flex-col rounded-lg "
       onMouseMove={handleMouseMove}
     >
-      <div className="flex justify-center items-center mt-40 mb-96">
-        <div>
-          <Image src={Jebus} alt="jebus" height={200} width={200} />
+      <div className="flex justify-center items-center">
+        <div
+          className={`flex justify-center items-center text-center ${
+            currentIndex === 0 ? "block" : "hidden"
+          }`}
+        >
+          <div className="flex w-96 flex-col font-serif md:w-auto">
+            <form className="flex-auto p-6 ">
+              <div className="flex flex-wrap">
+                <div className="w-28 h-28 relative mr-5 hover:w-80 hover:absolute hover:m-auto hover:h-80 hover:transition-all ">
+                  <Image
+                    src={Ropa}
+                    alt="Ropa"
+                    className="absolute inset-0 w-full h-full rounded-3xl object-cover"
+                    priority
+                  />
+                </div>
+                <div className="flex ml-7 justify-center items-center flex-col">
+                  <h1 className=" mb-5 text-lg font-semibold text-center text-white">
+                    Utility Jacket
+                  </h1>
+                  <div className="text-lg font-semibold text-slate-500">
+                    $110.00
+                  </div>
+                </div>
 
-          <iframe
-            width="240"
-            height="120"
-            src="https://www.youtube.com/embed/7T_YtklLyyo?si=5VY9WxRgcbiGmQMP&autoplay=1&controls=1&loop=1&playlist=7T_YtklLyyo"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="fixed rounded-2xl opacity-10 bottom-5 right-5 hover:opacity-100 transition-opacity"
-          />
+                <div className="w-full left-0 flex text-sm font-medium text-slate-200 mt-4">
+                  En stock
+                </div>
+              </div>
+              <div className="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+                <div className="space-x-2 flex text-sm">
+                  <label>
+                    <input
+                      className="sr-only peer"
+                      name="size"
+                      type="radio"
+                      value="xs"
+                      defaultChecked
+                    />
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                      XS
+                    </div>
+                  </label>
+                  <label>
+                    <input
+                      className="sr-only peer"
+                      name="size"
+                      type="radio"
+                      value="s"
+                      defaultChecked
+                    />
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                      S
+                    </div>
+                  </label>
+                  <label>
+                    <input
+                      className="sr-only peer"
+                      name="size"
+                      type="radio"
+                      value="m"
+                      defaultChecked
+                    />
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                      M
+                    </div>
+                  </label>
+                  <label>
+                    <input
+                      className="sr-only peer"
+                      name="size"
+                      type="radio"
+                      value="l"
+                      defaultChecked
+                    />
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                      L
+                    </div>
+                  </label>
+                  <label>
+                    <input
+                      className="sr-only peer"
+                      name="size"
+                      type="radio"
+                      value="xl"
+                      defaultChecked
+                    />
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                      XL
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div className="flex space-x-4 mb-6 text-sm font-medium">
+                <div className="flex-auto flex space-x-4">
+                  <a
+                    className="h-10 px-6 py-7 text-center items-center flex font-semibold rounded-md bg-black text-white hover:bg-slate-900"
+                    href="#arriba"
+                  >
+                    Comprar ahora
+                  </a>
+                  <button
+                    className="h-10 px-6 py-7 flex items-center justify-center font-semibold rounded-md border border-slate-200 hover:bg-slate-900"
+                    type="button"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+                <button
+                  className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200"
+                  type="button"
+                  aria-label="Like"
+                  defaultChecked
+                >
+                  <svg width="20" height="20" fill="red" aria-hidden="true">
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p className="text-sm text-slate-300">
+                Envios gratis en Argentina.
+              </p>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex w-96 items-center justify-center mb-[36rem]">
-        <Image src={Gato} alt="gato" className="min-h-80 w-64" />
-        <div className="absolute top-[-210px] left-0 right-0 bottom-0 flex items-center justify-center">
-          <Eye mouseX={mouseX} mouseY={mouseY} />
-          <Eye mouseX={mouseX} mouseY={mouseY} />
-          <h1 className="absolute mt-80 text-xl"> Login</h1>
-          <input
-            className="absolute flex mt-96 text-white w-32 rounded-md px-2 py-1 bg-slate-800 placeholder:text-center placeholder:text-slate-300"
-            placeholder="Username"
-          />
+        <div
+          className={`flex justify-center items-center text-center ${
+            currentIndex === 1 ? "block" : "hidden"
+          }`}
+        >
+          <ParallaxComponent />
         </div>
-      </div>
-
-      <div className="flex w-96 flex-col font-serif mb-[36rem] md:w-auto">
-        <form className="flex-auto p-6 rounded-xl border-2">
-          <div className="flex flex-wrap">
-            <div className="w-28 h-28 relative mr-5 hover:w-80 hover:absolute hover:m-auto hover:h-80 hover:transition-all ">
-              <Image
-                src={Ropa}
-                alt="Ropa"
-                className="absolute inset-0 w-full h-full rounded-3xl object-cover"
-                loading="lazy"
+        <div
+          className={`flex justify-center items-center text-center ${
+            currentIndex === 2 ? "block" : "hidden"
+          }`}
+        >
+          <div className="relative flex  w-96 items-center justify-center mb-5">
+            <Image src={Gato} alt="gato" className="min-h-80 w-64" />
+            <div className="absolute top-[-210px] left-0 right-0 bottom-0 flex items-center justify-center">
+              <Eye mouseX={mouseX} mouseY={mouseY} />
+              <Eye mouseX={mouseX} mouseY={mouseY} />
+              <h1 className="absolute mt-80 text-xl"> Login</h1>
+              <input
+                className="absolute flex mt-96 text-white w-32 rounded-md px-2 py-1 bg-slate-800 placeholder:text-center placeholder:text-slate-300"
+                placeholder="Username"
+                id="login"
               />
             </div>
-            <h1 className="flex-auto text-lg font-semibold text-center text-white">
-              Utility Jacket
-            </h1>
-            <div className="text-lg font-semibold text-slate-500">$110.00</div>
-            <div className="w-full flex-none text-sm font-medium text-slate-200 mt-2">
-              En stock
-            </div>
           </div>
-          <div className="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-            <div className="space-x-2 flex text-sm">
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="xs"
-                  defaultChecked
-                />
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                  XS
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="s"
-                  defaultChecked
-                />
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                  S
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="m"
-                  defaultChecked
-                />
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                  M
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="l"
-                  defaultChecked
-                />
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                  L
-                </div>
-              </label>
-              <label>
-                <input
-                  className="sr-only peer"
-                  name="size"
-                  type="radio"
-                  value="xl"
-                  defaultChecked
-                />
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                  XL
-                </div>
-              </label>
-            </div>
-          </div>
-          <div className="flex space-x-4 mb-6 text-sm font-medium">
-            <div className="flex-auto flex space-x-4">
-              <a
-                className="h-10 px-6 text-center items-center flex font-semibold rounded-md bg-black text-white"
-                href="#arriba"
-              >
-                Comprar ahora
-              </a>
-              <button
-                className="h-10 px-6 font-semibold rounded-md border border-slate-200"
-                type="button"
-              >
-                Añadir al carro
-              </button>
-            </div>
-            <button
-              className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300 border border-slate-200"
-              type="button"
-              aria-label="Like"
-            >
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                />
-              </svg>
-            </button>
-          </div>
-          <p className="text-sm text-slate-300">Envios gratis en Argentina.</p>
-        </form>
+        </div>
+        <div
+          className={`flex justify-center items-center text-center ${
+            currentIndex === 3 ? "block" : "hidden"
+          }`}
+        >
+          <Image src={Jebus} alt="jebus" />
+        </div>
       </div>
 
-      <ParallaxComponent />
+      <div className="flex p-10 gap-x-10 justify-center border-t-2 w-full ">
+        <button
+          className="border-2 rounded-lg text-white px-4 py-2"
+          onClick={handlePrev}
+        >
+          Anterior
+        </button>
+        <button
+          className="border-2 rounded-lg text-white px-4 py-2"
+          onClick={handleNext}
+        >
+          Siguiente
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const Sandbox = () => {
+  return (
+    <div className="flex flex-col justify-center items-center" id="arriba">
+      <div className="w-96 flex items-center justify-center mb-5">
+        <Carousel />
+      </div>
     </div>
   );
 };
