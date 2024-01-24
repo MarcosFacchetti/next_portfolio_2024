@@ -31,11 +31,24 @@ const PixelArt: React.FC = () => {
     }
   };
 
-  // Nueva función para habilitar el dibujo continuo al mantener presionado el mouse
+  const handleTouchStart = () => {
+    setIsDrawing(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDrawing(false);
+  };
+
   const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
     if (isDrawing) {
-      const pixel = event.target as HTMLDivElement;
-      pixel.style.backgroundColor = color;
+      const pixel = document.elementFromPoint(
+        event.touches[0].clientX,
+        event.touches[0].clientY
+      ) as HTMLDivElement;
+
+      if (pixel) {
+        pixel.style.backgroundColor = color;
+      }
     }
   };
 
@@ -55,7 +68,9 @@ const PixelArt: React.FC = () => {
           className="flex justify-center items-center bg-white p-1 flex-wrap gap-[0.5px]"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
-          onTouchMove={handleTouchMove} // Agregamos el evento onTouchMove para dispositivos táctiles
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchMove={handleTouchMove}
         >
           {Array.from({ length: 240 }, (_, index) => (
             <div
@@ -73,3 +88,5 @@ const PixelArt: React.FC = () => {
 };
 
 export default PixelArt;
+
+
