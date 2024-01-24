@@ -44,12 +44,12 @@ const Proyectos: React.FC = () => {
         <CustomCard
           href="/Proyectos/Clima"
           title="App del clima"
-          description="Consulta el clima en cualquier parte del mundo"
+          description="Consulta el clima de cualquier lugar"
         />
         <CustomCard
           href="/Proyectos/PixelArt"
           title="PixelArt"
-          description="Dibuja pixelart."
+          description="Dibuja pixelart"
         />
         <CustomCard
           href="/Proyectos/Ecommerce"

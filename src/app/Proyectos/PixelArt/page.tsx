@@ -47,6 +47,7 @@ const PixelArt: React.FC = () => {
       ) as HTMLDivElement;
 
       if (pixel) {
+        event.currentTarget as HTMLDivElement;
         pixel.style.backgroundColor = color;
       }
     }
