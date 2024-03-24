@@ -60,7 +60,7 @@ const Home = () => {
         <p className="text-2xl mb-4">Programador Fullstack</p>
         <div className="mb-4">
           <p className="text-lg">+3 años de experiencia</p>
-          <p className="text-lg">Nacido en Argentina el 9/11/2000</p>
+          <p className="text-lg mt-3">Estudiante de inteligencia artificial en la UNR</p>
         </div>
         <div>
           <p className="text-2xl pt-10 mb-5">Tecnologías</p>

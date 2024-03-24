@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react';
 
 const Tareas: React.FC = () => {
@@ -18,8 +17,14 @@ const Tareas: React.FC = () => {
     setTareas(nuevasTareas);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      agregarTarea();
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center p-10  w-80">
+    <div className="flex flex-col items-center p-10 w-80">
       <h1 className="font-bold text-2xl mt-5 mb-3">Gestor de tareas</h1>
       <div className="flex flex-col items-center mb-4">
         <button
@@ -34,6 +39,7 @@ const Tareas: React.FC = () => {
           placeholder="Agregar tarea"
           value={nuevaTarea}
           onChange={(e) => setNuevaTarea(e.target.value)}
+          onKeyPress={handleKeyPress} // Llamamos a la función handleKeyPress
         />
       </div>
       <ul className="flex flex-col flex-wrap ">
